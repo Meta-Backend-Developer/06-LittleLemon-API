@@ -1,0 +1,18 @@
+admin:
+    username: admin
+    password: Password1
+
+manager:
+    username: supermario
+    password: mariospassword    
+
+customer:
+    username: jsmith    
+    password: jsmithspassword
+
+    username: johnwick
+    password: johnwickspassword
+
+delivery_crew:
+    username: poarchb
+    password: bellaspassword
