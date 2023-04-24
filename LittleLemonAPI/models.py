@@ -19,10 +19,6 @@ class MenuItem(models.Model):
     def __str__(self)->str:
         return self.title
 
-    class Meta:
-        verbose_name = 'Menu Item'
-        verbose_name_plural = 'Menu items'
-
 
 class Cart(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

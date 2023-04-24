@@ -1,14 +1,18 @@
 admin:
     username: admin
     password: Password1
+    token: ee755839b0b7dfddb1c0635c57e12a639071a821
+
 
 manager:
     username: supermario
-    password: mariospassword    
+    password: mariospassword   
+    token: 03a6bf54c659c14a710a37f25824f0e49f9ed0b7 
 
 customer:
     username: jsmith    
     password: jsmithspassword
+    token: d52431f23692ec549539324d1100837de2ad7957
 
     username: johnwick
     password: johnwickspassword
@@ -16,3 +20,4 @@ customer:
 delivery_crew:
     username: poarchb
     password: bellaspassword
+    token: 4321cb7078d1655a188efbefa2bada2d7348c0d2

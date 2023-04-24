@@ -5,16 +5,16 @@ from rest_framework.response import Response
 from rest_framework.throttling import UserRateThrottle, AnonRateThrottle
 from decimal import Decimal
 
-from .models import MenuItem, OrderItem, Cart, Order
-from .serializers import MenuItemSerializer, UserSerializer, UserCartSerializer, UserOrdersSerializer
+from .models import MenuItem, Category, OrderItem, Cart, Order
+from .serializers import MenuItemSerializer, CategorySerializer, UserSerializer, UserCartSerializer, UserOrdersSerializer
 
 
 
 class MenuItemView(generics.ListAPIView, generics.ListCreateAPIView):
     queryset = MenuItem.objects.all()
     serializer_class = MenuItemSerializer
+    search_fields = ['title', 'category__title']
     ordering_fields = ['price']
-    search_fields = ['title']
     throttle_classes = [AnonRateThrottle, UserRateThrottle]
 
     def get_permissions(self):
@@ -31,6 +31,18 @@ class SingleItemView(generics.RetrieveUpdateDestroyAPIView, generics.RetrieveAPI
         if self.request.method == 'GET':
             return [AllowAny()]
         return [IsAdminUser()]
+    
+
+class CategoryView(generics.ListCreateAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+    throttle_classes = [AnonRateThrottle, UserRateThrottle]
+
+    def get_permissions(self):
+        if self.request.method == 'POST':
+            return [IsAdminUser()]
+        return [AllowAny()]
+    
     
 
 class ManagerUsersView(generics.ListCreateAPIView):
